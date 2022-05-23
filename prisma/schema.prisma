@@ -1,0 +1,64 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = "mongodb+srv://astronadmin:YmMGzRamObAdJy72@astronomicsdb.5vxcs.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+}
+
+model User {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  isSeller    Boolean?  @default(false)
+  FirstName   String
+  LastName    String
+  Email       String
+  PhoneNumber String
+  Password    String
+  Address     String
+  City        String
+  Country     String
+  State       String
+  ZipCode     Int
+  Cart        Cart?
+  Selling     Selling[]
+}
+
+model Cart {
+  id       String    @id @default(auto()) @map("_id") @db.ObjectId
+  User     User      @relation(fields: [UserId], references: [id])
+  UserId   String    @unique
+  Articles Article[]
+}
+
+model Article {
+  reference          String    @id @default(auto()) @map("_id") @db.ObjectId
+  Title              String    @default("Article")
+  Description        String    @default("Lorem ipsum dolor sit amet")
+  Category           String    @default("MISC")
+  Price              Float
+  ImageId            String?   @default("unknown.png")
+  Sale               Int?      @default(0)
+  BackgroundColor    String?   @default("#e0e0e0")
+  Width              Int?
+  Height             Int?
+  Weight             Int?
+  PresentationImages String[]
+  OtherInfos         Json?
+  Cart               Cart?     @relation(fields: [cartId], references: [id])
+  cartId             String?
+  SellingIDs         String[]  @db.ObjectId
+  Selling            Selling[] @relation(fields: [SellingIDs], references: [id])
+}
+
+model Selling {
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
+  User        User      @relation(fields: [userId], references: [id])
+  userId      String
+  ArticlesIDs String[]  @db.ObjectId
+  Articles    Article[] @relation(fields: [ArticlesIDs], references: [reference])
+
+}

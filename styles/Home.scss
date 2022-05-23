@@ -1,0 +1,178 @@
+$title: #1B2C42;
+$subtitle: #8594A8;
+
+.landing {
+  width: 100%;
+  height: 25rem;
+  background-image: url("/fusee 1.png");
+  background-repeat: no-repeat;
+  background-position-x: 65vw;
+  background-position-y: -4rem;
+  background-size: 32%;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding-left: 15rem;
+
+  color: $title;
+
+  h1 {
+    font-weight:600;
+    font-size: 2rem;
+    margin-bottom: 0;
+    width: fit-content;    
+  }
+  
+  h2{
+    margin-top: 1rem;
+    font-weight:500;
+  }
+
+}
+
+.highlight {
+  
+  span {
+      position: relative;
+      display: inline-block;
+      z-index: 1;
+
+      &::before {
+        content: "";
+        height: 1rem;
+        width: 105%;
+        position: absolute;
+        bottom: 0;
+        left: -2.5%;
+        background-color: #DCBBFF;
+        z-index: -1;
+      }
+    }
+}
+
+.hot-deals {
+  
+  width: 100%;
+  height: 33rem;
+  background-color: #fff;
+  border-radius: 33px;
+  padding: 4rem 15rem;
+  margin-bottom: 6rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+
+  .title {
+
+    display: flex;
+    align-self: flex-start;
+    width: fit-content;
+    align-items: baseline;
+    justify-content: space-between;
+
+    h1, h3 {
+      margin: 0;
+    }
+
+    h1 {
+      font-weight: 600;
+      font-size: 2rem;
+      margin-bottom: 0;
+      width: fit-content;
+      color: $title;
+      margin-right: 2rem;
+    }
+
+    h3 {
+      font-weight:500;
+      color:$subtitle;
+      font-size:1.1rem;
+    }
+    
+  }
+
+  .content {
+    background-color: #F6F7FA;
+    padding: 2.5rem 4rem;
+    border-radius: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 90rem;
+    gap: 4rem;
+  }
+}
+
+.browse-category {
+  width: 100%;
+  height: 24rem;
+  background-color: #8A77FF;
+  border-radius: 33px;
+  padding: 4rem 15rem;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-bottom: 6rem;
+
+  h1{
+    font-weight:600;
+    font-size: 2rem;
+    margin-bottom: 0;
+    width: fit-content;
+    color: #fff;
+    justify-content: center;
+    margin-top: 0;
+
+    span::before {
+      background-color: #b399ff;
+    }
+  }
+  
+  .button-row {
+
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+
+    .button {
+      width: 10rem;
+      height: 10rem;
+      background-color: #B498FF;
+      border-radius: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction:column;
+      transition: color .2s;
+      color: #F1E4FF;
+      cursor: pointer;
+
+      &:active {
+        transform: translate(0, 1.5px);
+      }
+
+      svg {
+        width: 4rem;
+        height: 4rem;
+        margin-bottom: .5rem;
+
+        path {
+          fill: currentColor;
+        }
+      }
+
+      h2{
+        margin-top:0; 
+        font-weight:600;
+        margin-bottom: 0;
+      }
+
+      &:hover {
+        color: #fff;
+      }
+    }
+    
+  }
+  
+}
